@@ -1,5 +1,5 @@
 // countdown timer
-const endDate = new Date(" 29 sep , 2025 1:10:00").getTime() ;
+const endDate = new Date(" 5 oct , 2025 1:10:00").getTime() ;
 const startDate = new Date().getTime();
 
  let x = setInterval( function updateTimer(){
