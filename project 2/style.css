@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    color: #fff;
+
+    background:
+        radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.22), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(59, 130, 246, 0.18), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(236, 72, 153, 0.12), transparent 35%),
+        #050816;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+#main {
+    width: min(1400px, 92%);
+    margin: auto;
+    padding: 60px 0 100px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+#main > div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin-bottom: 50px;
+}
+
+#main > div:first-child img {
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 10px rgba(139, 92, 246, 0.8))
+        drop-shadow(0 0 25px rgba(59, 130, 246, 0.4));
+
+    animation: floatLogo 3s ease-in-out infinite;
+}
+
+#main h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #a78bfa,
+        #60a5fa,
+        #fff
+    );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 5s linear infinite;
+}
+
+
+/* =========================================
+   SEARCH AREA
+========================================= */
+
+#search-movie {
+    width: min(750px, 100%);
+    margin: 0 auto 70px;
+
+    display: flex;
+    gap: 12px;
+
+    padding: 10px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s ease;
+}
+
+#search-movie:focus-within {
+    border-color: rgba(139, 92, 246, 0.7);
+
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, 0.08),
+        0 20px 70px rgba(0, 0, 0, 0.45);
+}
+
+#searchinput {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 15px 18px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+#searchinput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#searchbutton {
+    border: none;
+    outline: none;
+
+    padding: 0 28px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #2563eb
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.35);
+
+    transition: 0.3s ease;
+}
+
+#searchbutton:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 35px rgba(124, 58, 237, 0.55);
+}
+
+#searchbutton:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   POPULAR MOVIES TITLE
+========================================= */
+
+#main > h3 {
+    margin-bottom: 25px;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================
+   MOVIE GRID
+========================================= */
+
+#cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(210px, 1fr));
+
+    gap: 28px;
+}
+
+
+/* =========================================
+   MOVIE CARD
+========================================= */
+
+#cards > div {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 12px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.10),
+            rgba(255, 255, 255, 0.035)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.30);
+
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+    animation: cardAppear 0.6s ease both;
+}
+
+#cards > div:hover {
+    transform: translateY(-12px) scale(1.02);
+
+    border-color: rgba(139, 92, 246, 0.5);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(124, 58, 237, 0.14);
+}
+
+
+/* =========================================
+   POSTER
+========================================= */
+
+#cards > div img {
+    display: block;
+
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    transition:
+        transform 0.6s cubic-bezier(.2,.8,.2,1),
+        filter 0.4s ease;
+}
+
+#cards > div:hover img {
+    transform: scale(1.07);
+
+    filter: brightness(1.08);
+}
+
+
+/* =========================================
+   MOVIE NAME
+========================================= */
+
+#cards > div h2 {
+    margin-top: 15px;
+
+    padding: 0 5px;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: white;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   RATING
+========================================= */
+
+#cards > div p {
+    margin: 8px 5px;
+
+    color: #fbbf24;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#cards > div p::before {
+    content: "⭐ ";
+}
+
+
+/* =========================================
+   FAVORITE CHECKBOX
+========================================= */
+
+#cards > div input[type="checkbox"] {
+    appearance: none;
+
+    position: absolute;
+
+    top: 24px;
+    right: 24px;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(10px);
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    z-index: 5;
+}
+
+#cards > div input[type="checkbox"]::after {
+    content: "♡";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -53%);
+
+    font-size: 23px;
+
+    color: white;
+
+    transition: 0.3s ease;
+}
+
+#cards > div input[type="checkbox"]:hover {
+    transform: scale(1.12);
+
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#cards > div input[type="checkbox"]:checked {
+    background: rgba(236, 72, 153, 0.9);
+
+    border-color: rgba(244, 114, 182, 0.8);
+
+    box-shadow:
+        0 0 20px rgba(236, 72, 153, 0.55);
+}
+
+#cards > div input[type="checkbox"]:checked::after {
+    content: "♥";
+
+    transform:
+        translate(-50%, -53%)
+        scale(1.15);
+}
+
+
+/* =========================================
+   EMPTY RESULT
+========================================= */
+
+#cards > p {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 20px;
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes floatLogo {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 250% center;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    #main {
+        width: 94%;
+        padding-top: 35px;
+    }
+
+    #main > div:first-child {
+        margin-bottom: 35px;
+    }
+
+    #main h1 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    #main > div:first-child img {
+        width: 42px;
+        height: 42px;
+    }
+
+    #search-movie {
+        padding: 7px;
+    }
+
+    #searchinput {
+        min-width: 0;
+        font-size: 14px;
+    }
+
+    #searchbutton {
+        padding: 0 18px;
+    }
+
+    #cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 15px;
+    }
+
+    #cards > div {
+        padding: 8px;
+        border-radius: 15px;
+    }
+
+    #cards > div img {
+        height: 230px;
+        border-radius: 11px;
+    }
+
+    #cards > div h2 {
+        font-size: 14px;
+    }
+
+    #cards > div input[type="checkbox"] {
+        top: 17px;
+        right: 17px;
+
+        width: 34px;
+        height: 34px;
+    }
+
+    #cards > div input[type="checkbox"]::after {
+        font-size: 19px;
+    }
+
+}
