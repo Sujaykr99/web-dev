@@ -1,0 +1,17 @@
+{
+  "war": [
+    { "id": 1, "title": "The Fall of Troy", "year": "1184 BC", "description": "The legendary siege that ended the Trojan War." },
+    { "id": 2, "title": "Battle of Thermopylae", "year": "480 BC", "description": "300 Spartans against the Persian Empire." },
+    { "id": 3, "title": "Siege of Constantinople", "year": "1453 AD", "description": "The fall of the Byzantine Empire." }
+  ],
+  "paintings": [
+    { "id": 1, "title": "Mona Lisa", "year": "1503", "description": "Leonardo da Vinci's enigmatic masterpiece." },
+    { "id": 2, "title": "Starry Night", "year": "1889", "description": "Van Gogh's swirling post-impressionist vision." },
+    { "id": 3, "title": "The Persistence of Memory", "year": "1931", "description": "Dalí's melting clocks in a dreamscape." }
+  ],
+  "artifacts": [
+    { "id": 1, "title": "Rosetta Stone", "year": "196 BC", "description": "The key to deciphering Egyptian hieroglyphs." },
+    { "id": 2, "title": "Terracotta Army", "year": "210 BC", "description": "Thousands of life-sized warriors guarding Qin Shi Huang." },
+    { "id": 3, "title": "Dead Sea Scrolls", "year": "~250 BC", "description": "Ancient manuscripts found in the Qumran Caves." }
+  ]
+}

@@ -1,0 +1,1108 @@
+/* =====================================================
+   1. RESET & BASE
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #f8f3eb;
+  color: #241b16;
+}
+
+
+/* =====================================================
+   2. NAVBAR
+===================================================== */
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid #d8cec1;
+  background: #f8f3eb;
+}
+
+.logo {
+  text-decoration: none;
+  color: #241b16;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #51463e;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #9a6b42;
+}
+
+
+/* =====================================================
+   3. POSTCARD COMPONENT (large / detail-page version)
+===================================================== */
+
+.dil-e-noor-postcard {
+  width: 900px;
+  min-height: 600px;
+  margin: 40px auto;
+  padding: 50px;
+  position: relative;
+  border: 1px solid #4b3925;
+  box-sizing: border-box;
+  color: #3d2c1c;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Inner vintage border */
+.dil-e-noor-postcard::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(75, 57, 37, 0.6);
+  pointer-events: none;
+}
+
+/* Brand */
+.postcard-brand {
+  position: absolute;
+  top: 45px;
+  left: 50px;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  letter-spacing: 7px;
+  font-weight: 500;
+}
+
+/* Tagline */
+.postcard-tagline {
+  position: absolute;
+  top: 88px;
+  left: 50px;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+/* Divider */
+.postcard-divider {
+  width: 80px;
+  height: 1px;
+  background: #4b3925;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+/* Poetry */
+.postcard-poetry {
+  width: 75%;
+  text-align: center;
+  z-index: 2;
+}
+
+.postcard-poetry p {
+  margin: 0;
+  line-height: 1.6;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.postcard-poetry span {
+  display: block;
+  margin-top: 35px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* Decoration */
+.postcard-decoration {
+  position: absolute;
+  bottom: 35px;
+  left: 45px;
+  font-size: 38px;
+  opacity: 0.7;
+}
+
+
+/* =====================================================
+   4. WORD STRIP / MARQUEE (default version)
+===================================================== */
+
+.word-strip {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #8c7a63;
+  border-bottom: 1px solid #8c7a63;
+  margin-top: 30px;
+  padding: 16px 0;
+  white-space: nowrap;
+}
+
+.word-track {
+  display: inline-flex;
+  align-items: center;
+  animation: wordMove 25s linear infinite;
+}
+
+.word-track span {
+  font-family: "Noto Nastaliq Urdu", Georgia, serif;
+  font-size: 22px;
+  margin: 0 25px;
+  color: #514333;
+}
+
+.word-track span::after {
+  content: "✦";
+  margin-left: 45px;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+@keyframes wordMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =====================================================
+   5. POET PAGE (listing of poets' full works)
+===================================================== */
+
+.poet-page {
+  min-height: 100vh;
+  padding: 40px 6% 100px;
+  background: #e8dfcf;
+  color: #263b2b;
+}
+
+/* Poet Heading */
+.poet-heading {
+  text-align: center;
+  padding: 30px 0 30px;
+  border-bottom: 1px solid #8b7b65;
+  margin-bottom: 30px;
+}
+
+.poet-heading p {
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #806f59;
+  margin-bottom: 20px;
+}
+
+.poet-heading h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(55px, 8vw, 100px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.poet-line {
+  width: 70px;
+  height: 1px;
+  background: #66533e;
+  margin: 30px auto 0;
+}
+
+/* Poetry Grid (poet-page version) */
+.poetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Poetry Card (poet-page version) */
+.poetry-card {
+  display: block;
+  text-decoration: none;
+  color: #3d3023;
+  border: 1px solid #8b7b65;
+  padding: 35px;
+  min-height: 280px;
+  background: rgba(240, 231, 216, 0.45);
+  transition: all 0.35s ease;
+}
+
+.poetry-card:hover {
+  transform: translateY(-6px);
+  background: #eee4d3;
+}
+
+.poetry-card h3 {
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.poetry-card p {
+  line-height: 1.8;
+  font-size: 17px;
+  color: #5c4b38;
+}
+
+.poetry-card span {
+  display: inline-block;
+  margin: 15px 0;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #806f59;
+}
+
+
+/* =====================================================
+   6. CATEGORY PAGE
+===================================================== */
+
+.category-page {
+  min-height: 100vh;
+  padding: 30px 6% 70px;
+  background: #e8dfcf;
+  color: #263b2b;
+}
+
+/* Category Heading */
+.category-heading {
+  text-align: center;
+  padding: 35px 0 35px;
+  border-bottom: 1px solid #8b7b65;
+  margin-bottom: 35px;
+}
+
+.category-heading p {
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #806f59;
+  margin-bottom: 8px;
+}
+
+.category-heading h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(55px, 7vw, 85px);
+  font-weight: 400;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.category-line {
+  width: 55px;
+  height: 1px;
+  background: #66533e;
+  margin: 20px auto 0;
+}
+
+/* Poetry Grid override within category page */
+.category-page .poetry-grid {
+  margin-top: 0;
+}
+
+
+/* =====================================================
+   7. POETRY DETAIL PAGE
+===================================================== */
+
+.poetry-detail {
+  min-height: 100vh;
+  padding: 120px 8%;
+  background: #e8dfcf;
+  color: #3d3023;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Category */
+.detail-category {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #806f59;
+  margin-bottom: 30px;
+}
+
+/* Title */
+.poetry-detail h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(45px, 7vw, 90px);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Line */
+.detail-line {
+  width: 80px;
+  height: 1px;
+  background: #806f59;
+  margin: 40px 0;
+}
+
+/* Poetry */
+.detail-text {
+  max-width: 850px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* Poet */
+.detail-poet {
+  margin-top: 30px;
+  font-size: 18px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* Generate Button */
+.generate-card-btn {
+  margin-top: 60px;
+  padding: 15px 30px;
+  border: 1px solid #4d3d2b;
+  color: #3d3023;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.generate-card-btn:hover {
+  background: #3d3023;
+  color: #e8dfcf;
+}
+
+
+/* =====================================================
+   8. CARD PAGE (postcard customizer)
+===================================================== */
+
+.card-page {
+  min-height: 100vh;
+  padding: 80px 5%;
+  background: #e8dfcf;
+}
+
+.card-editor {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.customizer-controls {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.customizer-controls h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.customizer-controls label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.customizer-controls select {
+  padding: 10px;
+  border: 1px solid #806f59;
+  background: #eee4d3;
+  color: #3d3023;
+}
+
+/* Postcard override (smaller, card-page version) */
+.dil-e-noor-postcard {
+  width: 700px;
+  min-height: 500px;
+  padding: 60px;
+  position: relative;
+  border: 1px solid #4b3925;
+  color: #3d2c1c;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dil-e-noor-postcard::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(75, 57, 37, 0.6);
+}
+
+.postcard-brand {
+  position: absolute;
+  top: 40px;
+  left: 45px;
+  font-size: 25px;
+  letter-spacing: 6px;
+}
+
+.postcard-tagline {
+  position: absolute;
+  top: 75px;
+  left: 45px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.postcard-divider {
+  width: 70px;
+  height: 1px;
+  background: #4b3925;
+  margin-bottom: 40px;
+}
+
+.postcard-poetry {
+  width: 80%;
+  text-align: center;
+  line-height: 1.7;
+  z-index: 2;
+}
+
+.postcard-poetry p {
+  margin: 0;
+}
+
+.postcard-poetry span {
+  display: block;
+  margin-top: 25px;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.postcard-decoration {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  font-size: 30px;
+}
+
+
+/* =====================================================
+   9. POET GRID / POET CARD (compact component version)
+===================================================== */
+
+.poet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+/* Poet Card */
+.poet-card {
+  display: flex;
+  gap: 25px;
+  padding: 20px;
+  border: 1px solid #9a8a73;
+  background: rgba(240, 232, 218, 0.45);
+  text-decoration: none;
+  color: #3d3023;
+  transition: transform 0.3s ease;
+}
+
+.poet-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Small Image */
+.poet-card img {
+  width: 150px;
+  height: 190px;
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: sepia(15%);
+}
+
+/* Info */
+.poet-info {
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.poet-info h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+/* Small line */
+.poet-life {
+  margin: 0;
+  font-size: 14px;
+  color: #75644f;
+}
+
+.poet-small-line {
+  width: 35px;
+  height: 1px;
+  background: #806f59;
+  margin: 18px 0;
+}
+
+/* Quote */
+.poet-quote {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.5;
+  color: #514333;
+}
+
+/* View */
+.view-poems {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #3d3023;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .poet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poet-card img {
+    width: 120px;
+    height: 160px;
+  }
+}
+
+
+/* =====================================================
+   10. POETRY CARD (alt / horizontal-meta version)
+===================================================== */
+
+.poetry-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 32px;
+  border: 1px solid #9a8a73;
+  background: rgba(240, 232, 218, 0.45);
+  text-decoration: none;
+  color: #3d3023;
+  transition: transform 0.35s ease,
+              background 0.35s ease;
+}
+
+.poetry-card:hover {
+  transform: translateY(-6px);
+  background: #eee4d3;
+}
+
+/* Category */
+.poetry-card-top span {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #806f59;
+}
+
+/* Title */
+.poetry-card h3 {
+  margin: 25px 0 20px;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+/* Poetry */
+.poetry-preview {
+  max-width: 600px;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #5c4b38;
+}
+
+/* Bottom */
+.poetry-card-bottom {
+  margin-top: auto;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #75644f;
+}
+
+.read-more {
+  letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   11. POETRY GRID (responsive alt version)
+===================================================== */
+
+.poetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+  .poetry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+  .poetry-grid {
+    gap: 16px;
+  }
+
+  .poetry-card {
+    min-height: 260px;
+    padding: 24px;
+  }
+
+  .poetry-card h3 {
+    font-size: 24px;
+  }
+
+  .poetry-preview {
+    font-size: 15px;
+  }
+}
+
+
+/* =====================================================
+   12. HOME
+===================================================== */
+
+.home {
+  min-height: 100vh;
+  background: #eee7da;
+  color: #2d241b;
+  overflow: hidden;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 20px 0;
+}
+
+/* Main Shayari */
+.tag-line {
+  margin: 0;
+  max-width: 850px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #30261d;
+}
+
+/* Ornament */
+.hero-divider {
+  margin: 30px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hero-divider::before,
+.hero-divider::after {
+  content: "";
+  width: 65px;
+  height: 1px;
+  background: #9b8a72;
+}
+
+.hero-divider span {
+  font-size: 16px;
+  color: #80684e;
+}
+
+/* Question */
+.poetry-question {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 400;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #46382b;
+  width: 0;
+  animation:
+    typing 3s steps(25, end) forwards,
+    cursor 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 25ch;
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Changing question */
+.question-change {
+  margin: 28px 0 35px;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-style: italic;
+  color: #80684e;
+  animation: questionFade 4s ease-in-out infinite;
+}
+
+@keyframes questionFade {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(8px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ---------- MOVING STRIP ---------- */
+
+.word-strip {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #a4937b;
+  border-bottom: 1px solid #a4937b;
+  margin-top: 20px;
+  padding: 17px 0;
+  white-space: nowrap;
+}
+
+.word-track {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  animation: wordMove 28s linear infinite;
+}
+
+.word-track span {
+  margin: 0 24px;
+  font-family:
+    "Noto Nastaliq Urdu",
+    "Noto Sans Devanagari",
+    Georgia,
+    serif;
+  font-size: 21px;
+  color: #554536;
+}
+
+.word-track b {
+  font-size: 9px;
+  font-weight: 400;
+  color: #8b7861;
+}
+
+@keyframes wordMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ---------- POETS SECTION ---------- */
+
+.poets-section {
+  padding: 65px 4% 80px;
+}
+
+/* Heading */
+.section-heading {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.section-heading p {
+  align-self: start;
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #806f59;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.section-heading h2::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+  height: 1px;
+  background: #9c8c75;
+  margin-left: 25px;
+  vertical-align: middle;
+}
+
+.section-heading span {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #695845;
+}
+
+
+/* ---------- POET GRID (home version) ---------- */
+
+.poet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+
+/* ---------- POET CARD (home version) ---------- */
+
+.poet-card {
+  display: flex;
+  gap: 25px;
+  min-height: 230px;
+  padding: 20px;
+  border: 1px solid #aa9a82;
+  background: rgba(246, 240, 229, 0.45);
+  color: #30261d;
+  text-decoration: none;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.poet-card:hover {
+  transform: translateY(-5px);
+  background: #f3ecdf;
+}
+
+/* Image */
+.poet-card img {
+  width: 145px;
+  height: 190px;
+  flex-shrink: 0;
+  object-fit: cover;
+  filter: sepia(15%);
+}
+
+/* Info */
+.poet-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.poet-info h3 {
+  margin: 0 0 7px;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.poet-life {
+  margin: 0;
+  font-size: 14px;
+  color: #75644f;
+}
+
+.poet-small-line {
+  width: 35px;
+  height: 1px;
+  background: #8b7861;
+  margin: 16px 0;
+}
+
+.poet-quote {
+  margin: 0;
+  max-width: 430px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.5;
+  color: #554536;
+}
+
+.view-poems {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #403326;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.home-footer {
+  text-align: center;
+  padding: 25px 0 45px;
+  color: #806f59;
+}
+
+.home-footer div {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.home-footer p {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 5px;
+}
+
+
+/* ---------- RESPONSIVE (home) ---------- */
+
+@media (max-width: 850px) {
+  .poet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .section-heading h2::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 50px;
+  }
+
+  .tag-line {
+    font-size: 18px;
+  }
+
+  .poetry-question {
+    font-size: 34px;
+  }
+
+  .question-change {
+    font-size: 18px;
+  }
+
+  .poet-card {
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .poet-card img {
+    width: 105px;
+    height: 145px;
+  }
+
+  .poet-info h3 {
+    font-size: 20px;
+  }
+
+  .poet-quote {
+    font-size: 13px;
+  }
+}
+
+
+/* =====================================================
+   13. DOWNLOAD BUTTON
+===================================================== */
+
+.download-card-btn {
+  display: block;
+  margin: 35px auto 0;
+  padding: 13px 28px;
+  border: 1px solid #5c4936;
+  background: transparent;
+  color: #3d3023;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.download-card-btn:hover {
+  background: #3d3023;
+  color: #eee7da;
+  transform: translateY(-2px);
+}

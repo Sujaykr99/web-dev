@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  --color-museum-bg: #0a0a0a;
+  --color-museum-bg-light: #121212;
+  --color-museum-gold: #c9a84c;
+  --color-museum-gold-light: #e8d48b;
+  --color-museum-cream: #f5f0e8;
+  --color-museum-stone: #2a2520;
+  --color-museum-shadow: rgba(0,0,0,0.8);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-museum-bg);
+  color: var(--color-museum-cream);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-museum-gold);
+  color: var(--color-museum-bg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-museum-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-museum-stone);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-museum-gold);
+}
